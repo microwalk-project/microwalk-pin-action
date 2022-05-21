@@ -1,0 +1,11 @@
+name: 'Microwalk Pin'
+description: 'Analyze C code with the Microwalk Pin backend'
+inputs:
+  script-directory:
+    description: 'Directory path of the analysis and build scripts, relative to the repository root'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.script-directory }}
