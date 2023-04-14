@@ -4,8 +4,13 @@ inputs:
   script-directory:
     description: 'Directory path of the analysis and build scripts, relative to the repository root'
     required: true
+  dwarf-path-prefix:
+    description: 'Path prefix of source files in the analyzed library binary''s DWARF section.'
+    required: false
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.script-directory }}
+    - ${{ inputs.dwarf-path-prefix }}
